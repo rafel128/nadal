@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pàgina de Productes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background: #555;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 2rem;
+        }
+        .product {
+            margin-bottom: 2rem;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pàgina de Productes</h1>
+    </header>
+    <nav>
+        <a href="introduccio.html">Introducció</a>
+        <a href="llista.html">Llista de Compres</a>
+        <a href="mes_informacio.html">Més Informació</a>
+    </nav>
+
+    <!-- Introducció -->
+    <main id="introduccio">
+        <h2>Benvinguts a la nostra pàgina!</h2>
+        <p>Aquí trobareu informació sobre una selecció de productes exclusius. Descobriu més sobre cada un i feu clic als enllaços per adquirir-los directament.</p>
+    </main>
+
+    <!-- Llista de Compres -->
+    <main id="llista" style="display:none;">
+        <h2>Llista de Productes</h2>
+        <div class="product">
+            <h3>1. SNKE01K1</h3>
+            <p>Un rellotge de qualitat excel·lent amb un disseny atemporal.</p>
+            <img src="sak.jpg" alt="SNKE01K1">
+            <a href="https://www.amazon.es/s?k=SNKE01K1" target="_blank">Compra a Amazon</a>
+            
+        </div>
+        <div class="product">
+            <h3>2. New Balance 530 color gris</h3>
+            <p>Sabatilles còmodes i estilitzades, ideals per al dia a dia.</p>
+            <img src="new.jpg" alt="New Balance">
+            <a href="https://www.amazon.es/s?k=New+Balance+530" target="_blank">Compra a Amazon</a>
+        </div>
+        <div class="product">
+            <h3>3. Blue Label 200 ml</h3>
+            <p>Un whisky exclusiu per als paladars més exigents.</p>
+            <img src="lable.jpg">
+            <a href="https://www.amazon.es/s?k=Blue+Label+200ml" target="_blank">Compra a Amazon</a>
+        </div>
+        <div class="product">
+            <h3>4. Stronger with You Intensely</h3>
+            <p>Una fragància captivadora per a moments especials.</p>
+            <img src="you.jpg">
+            <a href="https://www.amazon.es/s?k=Stronger+With+You+Intensely" target="_blank">Compra a Amazon</a>
+        </div>
+        <div class="product">
+            <h3>5. Kawasaki Ninja 400</h3>
+            <p>Una moto impressionant amb una combinació perfecta de potència i estil.</p>
+            <img src="ninja.jpg">
+            <a href="https://www.kawasaki.es/es/products/Supersport/2024/Ninja_400/overview?Uid=08FDXlhZWlBaWQlbXVoMXA5cXVJaWFFfXl4OXVsJXQoLDVE" target="_blank">Més informació</a>
+        </div>
+    </main>
+
+    <!-- Més Informació -->
+    <main id="mes_informacio" style="display:none;">
+        <h2>Més Informació</h2>
+        <p>Per obtenir més informació sobre els nostres productes o serveis, no dubteu a contactar amb nosaltres</p>
+        <a href="mailto:RafelRossello07@gmail.com?Subject=Informació visita">Contactar per correu</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pàgina de Productes. Tots els drets reservats.</p>
+    </footer>
+
+    <script>
+        const sections = {
+            introduccio: document.getElementById('introduccio'),
+            llista: document.getElementById('llista'),
+            mes_informacio: document.getElementById('mes_informacio'),
+        };
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+
+                Object.values(sections).forEach(section => section.style.display = 'none');
+
+                const id = link.getAttribute('href').split('.')[0];
+                sections[id].style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
